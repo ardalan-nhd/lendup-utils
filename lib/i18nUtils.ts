@@ -1,5 +1,5 @@
 import { Direction } from "./types"
-import i18n from "i18next"
+import { i18n } from "next-i18next"
 import { clone } from "lodash"
 
 type Locale = "en" | "fa" | (string & {})
@@ -32,12 +32,17 @@ export const getLocaleTitle = (locale: LocaleParam) => {
   }
 }
 
-export const getValueByLocale = <T extends any>(value: LocaledValue<T> | undefined): T | null => {
+export const getValueByLocale = <T extends any>(
+  value: LocaledValue<T> | undefined
+): T | null => {
   const locale = (i18n?.language || "fa") as Locale
   return value?.[locale] || null
 }
 
-export const invertValue = <T extends InvertValueT>(value: T, invertMode: Direction = "rtl"): T => {
+export const invertValue = <T extends InvertValueT>(
+  value: T,
+  invertMode: Direction = "rtl"
+): T => {
   if (getDirection() === invertMode) return value
   if (typeof value === "number") {
     return -value as T
