@@ -1,4 +1,5 @@
 export { default as createEmotionCache } from "./lib/createEmotionCache"
+export { default as useClientEmotionCache } from "./lib/useClientEmotionCache"
 export { default as numberToTimeFormat } from "./lib/numberToTimeFormat"
 export { numberTransformer } from "./lib/numberTransformer"
 export { default as mutableObj } from "./lib/mutableObject"
