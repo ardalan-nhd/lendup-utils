@@ -1,5 +1,5 @@
 import { Direction } from "./types"
-import { i18n } from "next-i18next"
+import i18n from "i18next"
 
 type Locale = "en" | "fa" | (string & {})
 
