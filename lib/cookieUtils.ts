@@ -1,15 +1,15 @@
 type SetCookie = (
   key: string,
   value: string,
-  days?: number,
+  days?: number | "session",
   path?: string
 ) => string
 
 type GetCookie = (name: string, cookie: string | undefined) => string
 
-export const setCookie: SetCookie = (key, value, days, path = "/") => {
+export const setCookie: SetCookie = (key, value, days = 365, path = "/") => {
   let expires = ""
-  if (days) {
+  if (days !== "session") {
     const date = new Date()
     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000)
     expires = "; expires=" + date.toUTCString()
